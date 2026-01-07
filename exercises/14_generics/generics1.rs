@@ -3,12 +3,27 @@
 // But in this exercise, the compiler needs some help through a type annotation.
 
 
+struct GenVec<T>{
+    vect: Vec<T>,
+}
+
+impl<T> GenVec<T> {
+    fn new() -> Self {
+        Self {
+            vect: Vec::<T>::new(),
+        }
+    }
+
+    fn push(&mut self, obj: T) {
+        self.vect.push(obj);
+    }
+}
 
 fn main() {
     // TODO: Fix the compiler error by annotating the type of the vector
     // `Vec<T>`. Choose `T` as some integer type that can be created from
     // `u8` and `i8`.
-    let mut numbers: Vec<T> = Vec::new();
+    let mut numbers: Vec<i16> = Vec::new();
 
     // Don't change the lines below.
     let n1: u8 = 42;
@@ -16,5 +31,4 @@ fn main() {
     let n2: i8 = -1;
     numbers.push(n2.into());
 
-    println!("{numbers:?}");
 }
